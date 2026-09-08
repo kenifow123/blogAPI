@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const loginRouter = require('./routes/loginRouter.js')
 const signupRouter = require('./routes/signupRouter.js')
+const blogRouter = require('./routes/blogRouter.js')
 require("dotenv").config();
 
 const path = require("node:path");
@@ -13,6 +14,8 @@ app.use(express.urlencoded({extended: true}))
 
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
+
+app.use('/api/blog', blogRouter);
 
 
 app.listen(3000, (error) => {
