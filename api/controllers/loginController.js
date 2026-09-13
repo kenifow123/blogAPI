@@ -21,7 +21,7 @@ const loginPost = async (req, res, next) => {
         }
 
         console.log('login success');
-        jwt.sign({user}, process.env.JWT_SECRET, { expiresIn: '10m' }, (err, token) => {
+        jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: '30m' }, (err, token) => {
             res.json({
                 token
             });

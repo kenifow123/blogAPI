@@ -10,19 +10,13 @@ passport.use(
         },
         async (payload, done) => {
             try {
-                const user = await prisma.users.findUnique({
-                    where: { id: payload.userId }
+                // console.log(payload);
+                const user = await prisma.user.findUnique({
+                    where: { id: payload.user.id}
                 });
-
                 if (!user) {
-                    return done(null, false, { message: "Incorrect username" });
+                    return done(null, false);
                 }
-
-                const match = await bcrypt.compare(payload.password, user.password);
-                if (!match) {
-                    return done(null, false, { message: "Incorrect password" });
-                }
-                console.log('login success');
                 return done(null, user);
             } catch (err) {
                 return done(err, false);
