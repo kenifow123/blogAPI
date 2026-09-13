@@ -29,10 +29,6 @@ const loginPost = async (req, res, next) => {
     } catch (err) {
         res.status(401).json({message: err.message})
     }
-
-
-
-
 }
 
 module.exports = {

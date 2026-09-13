@@ -5,11 +5,11 @@ require('../config/passport.js');
 const passport = require('passport');
 
 
-blogRouter.get('/', blogController.allPostsGet);
+blogRouter.get('/', passport.authenticate("jwt", { session: false}), blogController.allPostsGet);
 blogRouter.post('/createPost', passport.authenticate("jwt", { session: false}), blogController.createPost);
-blogRouter.get('/:postId', blogController.findPostGet);
+blogRouter.get('/:postId', passport.authenticate("jwt", { session: false}), blogController.findPostGet);
 
 blogRouter.post('/:postId/createComment', passport.authenticate("jwt", { session: false }), blogController.createCommentPost);
-blogRouter.get('/:postId/:commentId', blogController.findCommentGet);
+blogRouter.get('/:postId/:commentId', passport.authenticate("jwt", { session: false}), blogController.findCommentGet);
 
 module.exports = blogRouter;
