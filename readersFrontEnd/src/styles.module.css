@@ -1,0 +1,10 @@
+.nav {
+  border: black solid 1px;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  list-style: none;
+}
