@@ -4,6 +4,7 @@ import App from "./App.jsx"
 import ErrorPage from "./components/ErrorPage.jsx"
 import CreatePost from "./components/CreatePost.jsx";
 import BlogHome from "./components/BlogHome.jsx";
+import ViewPost from "./components/ViewPost.jsx";
 
 const routes = [
     {
@@ -16,6 +17,7 @@ const routes = [
             { path: "/createPost", element: <CreatePost/>} ,
             { path: "/signup", element: <Signup/> },
             { path: "/home", element: <BlogHome/> },
+            { path: "/viewPost/:postId", element: <ViewPost/> },
         ]
     },
 ]

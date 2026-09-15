@@ -8,3 +8,9 @@ ul {
   gap: 10px;
   list-style: none;
 }
+
+.card {
+  border: black solid 1px;
+  border-radius: 10px;
+
+}
