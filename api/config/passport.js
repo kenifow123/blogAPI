@@ -10,7 +10,6 @@ passport.use(
         },
         async (payload, done) => {
             try {
-                // console.log(payload);
                 const user = await prisma.user.findUnique({
                     where: { id: payload.user.id}
                 });
