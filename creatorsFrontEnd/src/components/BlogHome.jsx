@@ -23,6 +23,16 @@ const BlogHome =  () => {
         getPosts();
     }, [jwt])
 
+    const handlePublishPost = async (postId) => {
+        const response = await fetch(`${url}/api/blog/publishPost/${postId}`, {
+            headers: {
+                Authorization : `Bearer ${jwt}`,
+                "Content-Type": "application/json"
+            }
+        })
+        window.location.reload();
+    }
+
 
 
     return (
@@ -30,13 +40,13 @@ const BlogHome =  () => {
             <h1>Blog Home - All Posts</h1>
             <div className="postsDiv">
                 {posts.map((post) => (
-                    <div className={styles.card}>
+                    <div className={styles.card} key={post.id}>
                         <h3>Title: {post.title}</h3>
                         <Link to={`/viewPost/${post.id}`}>View Post</Link>
                         {post.published ?
-                            <Link>Hide Post</Link>
+                            <button>Hide Post</button>
                             :
-                            <Link to={`/publishPost/${post.id}`}>Publish Post</Link>
+                            <button onClick={() => handlePublishPost(post.id)}>Publish Post</button>
                         }
                     </div>
                 )

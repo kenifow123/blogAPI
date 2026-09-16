@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
+    const error = useRouteError();
+    console.log("ROUTER ERROR:", error);
     return (
         <div>
             <h1>Oh no, this route doesn't exist!</h1>
